@@ -22,18 +22,53 @@ Use async/await and try/catch to handle promises.
 Try and avoid using global variables. As much as possible, try and use function 
 parameters and return values to pass data back and forth.
 ------------------------------------------------------------------------------*/
-function fetchData(/* TODO parameter(s) go here */) {
-  // TODO complete this function
+window.addEventListener('load', main);
+document.getElementById('getPokemon').addEventListener('click', fetchAndPopulatePokemons);
+
+function fetchData(url) {
+  const promise = fetch(url).then(response => {
+    if (response.ok) {
+      return response.json();
+    }
+    throw new Error('Request failed!');
+  }, networkError => {
+    console.error(networkError.message);
+  });
+
+  return promise;
 }
 
-function fetchAndPopulatePokemons(/* TODO parameter(s) go here */) {
-  // TODO complete this function
+async function fetchAndPopulatePokemons() {
+  const query = "pokemon";
+  const pokemonApi = await fetchData(`https://pokeapi.co/api/v2/${query}`);
+  const pokemonResults = pokemonApi.results;
+  const selectElem = document.getElementById("pokemonSelector");
+
+  pokemonResults.forEach(element => {
+    const optionElem = document.createElement("option");
+    optionElem.textContent = element.name;
+    selectElem.appendChild(optionElem);
+  });
+
+  return pokemonResults;
 }
 
 function fetchImage(/* TODO parameter(s) go here */) {
   // TODO complete this function
+  /* 
+  Click on any option -> pokemonResults.url -> index?? -> JSONObject.sprites.front_default = image
+  */
+
 }
 
-function main() {
-  // TODO complete this function
+async function main() {
+  try {
+    const data = await fetchData("https://pokeapi.co/api/v2/");
+    // eslint-disable-next-line hyf/no-commented-out-code
+    //const pokemonList = await fetchAndPopulatePokemons(data);
+    console.log(data);
+
+  } catch (error) {
+    console.error(error);
+  }
 }
