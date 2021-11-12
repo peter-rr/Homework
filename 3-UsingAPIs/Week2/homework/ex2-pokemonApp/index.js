@@ -22,8 +22,13 @@ Use async/await and try/catch to handle promises.
 Try and avoid using global variables. As much as possible, try and use function 
 parameters and return values to pass data back and forth.
 ------------------------------------------------------------------------------*/
-window.addEventListener('load', main);
 document.getElementById('getPokemon').addEventListener('click', fetchAndPopulatePokemons);
+const selectElem = document.getElementById("pokemonDropdown");
+selectElem.addEventListener('change', (event) => {
+  const pokemonSelected = event.target.value;
+  fetchImage(pokemonSelected);
+});
+
 
 function fetchData(url) {
   const promise = fetch(url).then(response => {
@@ -42,10 +47,10 @@ async function fetchAndPopulatePokemons() {
   const query = "pokemon";
   const pokemonApi = await fetchData(`https://pokeapi.co/api/v2/${query}`);
   const pokemonResults = pokemonApi.results;
-  const selectElem = document.getElementById("pokemonSelector");
 
-  pokemonResults.forEach(element => {
+  pokemonResults.forEach((element, index) => {
     const optionElem = document.createElement("option");
+    optionElem.value = index + 1;
     optionElem.textContent = element.name;
     selectElem.appendChild(optionElem);
   });
@@ -53,22 +58,19 @@ async function fetchAndPopulatePokemons() {
   return pokemonResults;
 }
 
-function fetchImage(/* TODO parameter(s) go here */) {
-  // TODO complete this function
-  /* 
-  Click on any option -> pokemonResults.url -> index?? -> JSONObject.sprites.front_default = image
-  */
-
+async function fetchImage(query) {
+  const pokemonFetched = await fetchData(`https://pokeapi.co/api/v2/pokemon/${query}`);
+  console.log(pokemonFetched);
+  const image = pokemonFetched.sprites.front_default;
+  document.getElementById("pokemonImage").src = image;
 }
 
 async function main() {
   try {
-    const data = await fetchData("https://pokeapi.co/api/v2/");
-    // eslint-disable-next-line hyf/no-commented-out-code
-    //const pokemonList = await fetchAndPopulatePokemons(data);
-    console.log(data);
-
+    fetchData("https://pokeapi.co/api/v2/");
   } catch (error) {
     console.error(error);
   }
 }
+
+window.addEventListener('load', main);
