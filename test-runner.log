@@ -1246,3 +1246,8 @@ This usually means that there are asynchronous operations that weren't stopped i
 2021-11-12 06:47:59 info: ---------------------------------------------
 2021-11-12 06:48:04 info: All unit tests passed.
 2021-11-12 06:48:07 info: All steps were completed successfully
+2021-11-12 06:53:04 info: ------------------------------------------
+2021-11-12 06:53:04 info: >>> Running Unit Test `ex2-pokemonApp` <<<
+2021-11-12 06:53:04 info: ------------------------------------------
+2021-11-12 06:53:10 info: All unit tests passed.
+2021-11-12 06:53:12 info: All steps were completed successfully
