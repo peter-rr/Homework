@@ -5,13 +5,13 @@
 // JavaScript library to work with time: https://momentjs.com/docs/
 const moment = require('moment');
 
-// These are the six side on a poker dice.
+// These are the six sides on a poker dice.
 const sides = ['NINE', 'TEN', 'JACK', 'QUEEN', 'KING', 'ACE'];
 
 // The maximum number of rolls the dice should make.
 const MAX_ROLLS = 8;
 
-// The maximum number of rolls the dice should make.
+// The minimum number of rolls the dice should make.
 const MIN_ROLLS = 3;
 
 // The number of rolls after which the dice rolls off the table.

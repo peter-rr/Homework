@@ -1251,3 +1251,46 @@ This usually means that there are asynchronous operations that weren't stopped i
 2021-11-12 06:53:04 info: ------------------------------------------
 2021-11-12 06:53:10 info: All unit tests passed.
 2021-11-12 06:53:12 info: All steps were completed successfully
+2021-11-15 09:25:00 info: -----------------------------------------
+2021-11-15 09:25:00 info: >>> Running Unit Test `ex3-rollAnAce` <<<
+2021-11-15 09:25:00 info: -----------------------------------------
+2021-11-15 09:25:04 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex3-rollAnAce.test.js --colors
+ FAIL  3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.js
+  ex3-rollAnAce
+    ✕ should have all TODO comments removed (7 ms)
+    ✓ should not include a recursive call
+    ✓ should use async/wait (1 ms)
+    ✓ should use try/catch
+    ✓ should resolve as soon as a dice settles on an ACE (2 ms)
+    ✓ should reject with an Error when a dice rolls off the table (2 ms)
+
+  ● ex3-rollAnAce › should have all TODO comments removed
+
+    expect(received).toBeFalsy()
+
+    Received: true
+
+      113 |
+      114 | function checkTodos(source) {
+    > 115 |   expect(source.includes('TODO')).toBeFalsy();
+          |                                   ^
+      116 | }
+      117 |
+      118 | module.exports = {
+
+      at checkTodos (test-runner/unit-test-helpers.js:115:35)
+      at Object.<anonymous> (3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.js:49:55)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 5 passed, 6 total
+Snapshots:   0 total
+Time:        1.572 s
+Ran all test suites matching /ex3-rollAnAce.test.js/i.
+
+2021-11-15 09:25:54 info: -----------------------------------------
+2021-11-15 09:25:54 info: >>> Running Unit Test `ex3-rollAnAce` <<<
+2021-11-15 09:25:54 info: -----------------------------------------
+2021-11-15 09:25:57 info: All unit tests passed.
+2021-11-15 09:26:00 info: All steps were completed successfully
