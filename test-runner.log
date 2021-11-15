@@ -1945,3 +1945,8 @@ Ran all test suites matching /ex2-pokemonApp.test.js/i.
 2021-11-12 02:31:08 info: All unit tests passed.
 2021-11-12 02:31:12 info: All steps were completed successfully
 >>>>>>> bd89e62b1dd1202445a4fd8c152d189cd331e166
+2021-11-15 11:03:31 info: ----------------------------------------
+2021-11-15 11:03:31 info: >>> Running Unit Test `ex4-diceRace` <<<
+2021-11-15 11:03:31 info: ----------------------------------------
+2021-11-15 11:03:34 info: All unit tests passed.
+2021-11-15 11:03:36 info: All steps were completed successfully
